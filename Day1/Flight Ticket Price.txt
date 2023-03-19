@@ -1,0 +1,9 @@
+adult = int(input("Number of Adult"))
+child = int(input("Number of Child"))
+f = ((adult*(37550) + child*(37550/3))*1.07)*0.90
+#f = adult*(37550) + child*(37550/3)
+#final = (float)(f/100)*10
+#f-= final
+#f*=1.07
+
+print(f)

@@ -1,0 +1,10 @@
+d = {"rhdt":246,"ghftd":1246}
+res=[]
+for i in d:
+    a=str(d[i])
+    asum= sum([int(x)**2 for x in a])
+    if asum%2==0:
+      res.append(i[-1]+i[:-1])
+    else:
+        res.append(i[2:]+i[:2])
+print(res)

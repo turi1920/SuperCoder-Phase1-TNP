@@ -1,0 +1,46 @@
+-->Vehicles are of two types - "Two Wheeler" and "Four Wheeler Each vehicle is identified by vehicle id, type, cost and premium amount.
+-->Premium amount is 2% of the vehicle cost for two wheelers and6% of the vehicle cost for four wheelers.
+Calculate the premium amount and display the vehicle details. Write a Python program to implement the class chosen with its attributes and methods.
+Note:
+Consider all instance variables to be private and methods to be public
+Include getter and setter methods for all instance variables) Display appropriate error message, if the vehicle type is  invalid
+
+Perform case sensitive string comparison Represent few objects of the class, initialize instance variables using setter methods, invoke appropriate methods and test your program.
+
+
+class vechile:
+    def __init__(self,id,type,cost,pa):
+        self.__id=id
+        self.__type=type
+        self.__cost=cost
+        self.__pa=pa
+
+    def set_id(self,id):
+        self.__id=id
+
+    def set_type(self,type):
+        self.__type = type
+
+    def set_cost(self, cost):
+        self.__cost = cost
+
+    def set_pa(self, pa):
+        self.__pa = pa
+
+    def cal(self):
+        if (self.__type == "Two Wheeler"):
+            self.__pa += self.__cost + (self.__cost * 0.02)
+        elif (self.__type == "Four Wheeler"):
+            self.__pa += self.__cost + (self.__cost * 0.06)
+        else:
+            self.__pa = 0
+
+    def get_all(self):
+        return "Id:",self.__id,"Type :",self.__type,"Cost:",self.__cost,"Premium Cost :",self.__pa
+
+V1 = vechile(2,"Four Wheeler",10000,0)
+V1.cal()
+print(V1.get_all())
+V1 = vechile(3,"Two Wheeler",20000,0)
+V1.cal()
+print(V1.get_all())

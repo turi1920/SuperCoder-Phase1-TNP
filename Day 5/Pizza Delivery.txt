@@ -1,0 +1,128 @@
+Pizza For You is a pizza store which sells different kinds of pizzas based on customer's order.40 min
+Customer can either collect the order in person or opt for a door delivery.
+Write a python program based on the class diagram given below.
+Customer class:
+validate_quantity(): A customer can order 1 to 5 pizzas
+If quantity is valid, return true. Else return false
+Pizza service class:
+Initialize static variable counter to 100
+Attribute, additional_topping is a boolean value which indicates whether additional topping is required or not.
+True – additional topping is required, False – additional topping is not required
+validate_pizza_type(): Customers can order "small" or "medium" type pizzas
+If pizza type is valid, return true. Else return false
+calculate_pizza_cost(): Calculate pizza cost
+Validate pizza type and quantity
+If valid,
+Identify pizza cost based on details mentioned in the table
+Set attribute, pizza_cost with the calculated pizza cost
+Auto-generate service_id starting from 101 prefixed by first letter of pizza type. Example – S101, s102, m103, S104, M105 etc
+If invalid, set pizza_cost to -1
+PizzaType	Cost/Pizza(in Rs)	Additional topping cost/Pizza       (in Rs), if applicable
+Small	            150	                    35
+Medium	            200	                    50
+Doordelivery class:
+validate_distance_in_kms(): Minimum distance for door delivery is 1km and maximum is 10kms
+Validate distance_in_kms
+If valid, return true. Else, return false
+calculate_pizza_cost: Calculate pizza cost
+Validate distance in kms
+If valid,
+Calculate pizza cost (Hint: Invoke overridden method in parent class)
+If pizza_cost is not -1, identify delivery charge based on details mentioned below and add it to attribute, pizza_cost
+Distance in kms	Delivery Charge in km(in Rs)
+For first 5 kms	5
+For remaining 5 kms	7
+Else, set pizza_cost to -1
+Note: Perform case insensitive string comparison
+For testing:
+Create objects of Pizzaservice and Doordelivery classes
+Invoke calculate_pizza_cost() on Pizzaservice and Doordelivery objects
+Display the detail
+
+
+'''
+
+class Costumer:
+    def __init__(self,n_pizza):
+        self.n_pizza=n_pizza
+    def valid_pizza(self):
+        if(self.n_pizza>=1 and self.n_pizza<=5):
+            return True
+        else:
+            return False
+class Service:
+    def __init__(self,id,type_pizza):
+        self.id = id
+        self.type_pizza = type_pizza
+    def pizza_type(self):
+        if self.type_pizza == "Small" or self.type_pizza == "Medium":
+            return True
+        else:
+            return False
+
+    def pizza_Cost(self,top,n_pizza):
+        cost=0
+        if(top == "Yes"):
+            if (self.type_pizza == "Small"):
+                cost = (150 * n_pizza) + (35 * n_pizza)
+                print(cost)
+            elif (self.type_pizza == "Medium"):
+                cost = (200 * n_pizza) + (50 * n_pizza)
+                print(cost)
+        else:
+            if (self.type_pizza == "Small"):
+                cost = (150 * n_pizza)
+                return cost
+            elif (self.type_pizza == "Medium"):
+                cost = (200 * n_pizza)
+                return cost
+
+class Door_Deliver:
+    def __init__(self,dis,pizza_cost):
+        self.d=dis
+        self.pc=pizza_cost
+
+
+    def distance(self):
+        if self.d>0 and self.d<11:
+            return True
+        else:
+            return False
+
+    def pizza_cost_door(self):
+        if(self.d <6):
+            self.pc=self.pc+(self.d*5)
+            return self.pc
+        elif(self.d>5 ):
+            self.pc=self.pc+((self.d-5)*7)+(self.d*5)
+            return self.pc
+
+
+
+
+
+n_pizza=int(input("Numbber of Pizza"))
+c1 = Costumer(n_pizza)
+print("Number of Pizza valid: ",c1.valid_pizza())
+print("Type of Pizza")
+type_pizza= input()
+print("Topping is required yes or No")
+top= input()
+s1=Service(100,type_pizza)
+s1.pizza_type()
+pizza_cost=0
+if(c1.valid_pizza()):
+    if(top == "Yes"):0
+      pizza_cost = s1.pizza_Cost(top,n_pizza)
+    else:
+      pizza_cost= s1.pizza_Cost(top,n_pizza)
+    else:
+        print(-1)
+print("Pizza Cost :",pizza_cost)
+print("Enter the distance in km")
+dis = int(input())
+d1=Door_Deliver(dis,pizza_cost)
+valid_door = d1.distance()
+print("Valid for Door Deliver",valid_door)
+if(valid_door):
+    print(d1.pizza_cost_door())

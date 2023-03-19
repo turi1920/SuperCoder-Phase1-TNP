@@ -1,0 +1,17 @@
+def rupee(n1,str):
+    if (s == "euro"):
+        print(n * 0.01417)
+    elif (s == "British Pound"):
+        print(n * 0.0100)
+    elif (s == "Australian Dollar"):
+        print(n * 0.02140)
+    elif (s == "Canadia Dollar"):
+        print(n * 0.02027)
+    else:
+        print(-1)
+
+
+
+n = int(input())
+s = input()
+rupee(n,s)

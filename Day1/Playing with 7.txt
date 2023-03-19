@@ -1,0 +1,13 @@
+n1 = int(input())
+n2 = int(input())
+n3 = int(input())
+mul=0
+if n1==7:
+    mul=n2*n3
+elif n2==7:
+    mul = n3
+elif n3==7:
+    mul=-1
+else:
+    mul=n1*n2*n3
+print(mul)

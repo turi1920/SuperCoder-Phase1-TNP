@@ -1,0 +1,19 @@
+x = int(input("Enter the 5 rupee coin"))
+y = int(input("Enter the 1 rupee coin"))
+z = int(input("Enter the amount"))
+
+total = x*5 + y*1
+total = total - (total-z)
+five =0
+one =0
+while(total>0):
+        if(total >= 5):
+            five =(int)(total/5)
+            total = total-(five*5)
+        elif(total>0 and total <5):
+             one+=1
+             total-=1
+        else:
+            print(-1)
+print(five)
+print(one)

@@ -1,0 +1,72 @@
+### A University wants to automate their admission process. Students are admitted based on marks according to a qualifying exams.
+
+A Student is identified by studentid, age and marks in qualifying exam
+
+Data is valid, if:
+  * Age is greater than 20
+  * Marks is between 0 and 100
+
+A Student qualifies for the admission if:
+  * Age and Marks are Valid
+  * Marks is greater than 65
+
+Rules to Follow:
+Class Name: Student
+-- Attributes: (private)
+   * student_id
+   * marks
+   * age
+
+Methods:
+(public)
+* _init_()
+* validate_marks()
+* validate_age()
+* check_qualification()
+
+
+class student:
+    def __init__(self,id,age,mark):
+        self.__id=id
+        self.__age=age
+        self.__mark=mark
+
+    def set_id(self,id):
+        self.__id=id
+    def set_age(self,age):
+        self.__age=age
+    def set_mark(self,mark):
+        self.__mark=mark
+
+    def valid_mark(self):
+        if(self.__mark>65):
+            return True
+        else:
+            return False
+    def valid_age(self):
+        if(self.__age>19):
+            return True
+        else:
+            return False
+
+    def fee(self,course):
+        if(course == 1001):
+            if(self.__mark>84):
+                print("Fees:- ",25575-(25575*0.25))
+            else:
+                print("Fess:- ",25575)
+        elif(course==1002):
+            if (self.__mark > 84):
+                print("Fees:- ", 15500 - (15500 * 0.25))
+            else:
+                print("Fess:- ", 15500)
+s1=student(1,20,85)
+if(s1.valid_mark()):
+    if(s1.valid_age()):
+        print("Eligible")
+        z = int(input())
+        s1.fee(z)
+    else:
+        print("Not Eligible")
+else:
+    print("Not Eligible")

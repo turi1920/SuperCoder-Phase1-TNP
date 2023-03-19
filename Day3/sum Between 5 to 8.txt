@@ -1,0 +1,10 @@
+l = list(map(int,input().split(",")))
+less=0
+low = l.index(5)
+high = l.index(8)
+s=""
+nsum=sum(l[:low]+l[high+1:])
+a=l[low:high+1]
+for i in a:
+    s+=str(i)
+print(nsum+int(s))

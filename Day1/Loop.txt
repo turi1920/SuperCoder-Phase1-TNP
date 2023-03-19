@@ -1,0 +1,16 @@
+#For Loop
+for i in range(0, 101):
+    if i%2==0:
+        even.append(i)
+    else:
+        odd.append(i)
+
+
+for i in range(100,0,-1):
+    if(i%2==0):
+        even.append(i)
+    else:
+        odd.append(i)
+
+print("Even :",even)
+print("Odd :", odd)

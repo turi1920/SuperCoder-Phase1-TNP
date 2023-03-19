@@ -1,0 +1,27 @@
+#Print Upto 10
+reuslt=[]
+for i in range(11):
+    reuslt.append(i)
+print(reuslt)
+
+#One Line
+print([i for i in range(11)])
+
+
+#Even or Odd
+
+result=[]
+for i in range(11):
+    if i%2==0:
+        result.append(i)
+print(result)
+
+#Oneline
+
+print([i for i in range(11)if i%2==0])
+
+print([i for i in range(11)if i%2!=0])
+
+#Square of a number
+
+print([i if i%2==0 else i**2 for i in range(11)])
